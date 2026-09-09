@@ -26,6 +26,11 @@ export const metadata: Metadata = {
   description:
     'Modern Websites for Businesses That Want to Look Professional Online. Fast, mobile-responsive, and SEO-ready websites starting at €299 with 100% client ownership.',
   metadataBase: new URL(SITE_CONFIG.url),
+  icons: {
+    icon: '/logo-icon.svg',
+    shortcut: '/logo-icon.svg',
+    apple: '/logo-icon.svg',
+  },
   openGraph: {
     title: 'NexaWeb Studio — Modern Websites for Businesses',
     description:
@@ -67,6 +72,7 @@ export default function RootLayout({
   return (
     <html lang="en" dir="ltr" className="dark scroll-smooth" suppressHydrationWarning>
       <head>
+        <link rel="icon" href="/logo-icon.svg" type="image/svg+xml" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link
