@@ -413,7 +413,7 @@ export const pt: TranslationSchema = {
       emailLabel: 'Endereço de Email *',
       emailPlaceholder: 'joao@exemplo.pt',
       phoneLabel: 'Telefone / WhatsApp *',
-      phonePlaceholder: '+351 912 345 678',
+      phonePlaceholder: '+351 932 020 456',
       businessTypeLabel: 'Tipo de Negócio',
       businessTypePlaceholder: 'Selecione o seu setor',
       businessTypeOptions: [

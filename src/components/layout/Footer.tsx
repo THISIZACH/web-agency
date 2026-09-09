@@ -6,6 +6,7 @@ import { usePathname } from 'next/navigation';
 import { useLanguage } from '@/context/LanguageContext';
 import { CONTACT_CONFIG, getWhatsAppUrl } from '@/config/contact';
 import { SITE_CONFIG } from '@/config/site';
+import { demoUrls } from '@/config/demos';
 import { Sparkles, MessageCircle, Mail, Phone, Clock, ArrowUpRight } from 'lucide-react';
 
 export function Footer() {
@@ -93,19 +94,34 @@ export function Footer() {
             </h4>
             <ul className="space-y-2.5 text-sm">
               <li>
-                <Link href="/demos/restaurant" className="hover:text-brand-400 transition-colors">
+                <a
+                  href={demoUrls.restaurant}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-brand-400 transition-colors"
+                >
                   {locale === 'pt' ? 'Modelo de Restaurante' : locale === 'ar' ? 'نموذج المطاعم' : 'Restaurant Concept'}
-                </Link>
+                </a>
               </li>
               <li>
-                <Link href="/demos/dentist" className="hover:text-brand-400 transition-colors">
+                <a
+                  href={demoUrls.dentist}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-brand-400 transition-colors"
+                >
                   {locale === 'pt' ? 'NovaSmile Dental Clinic' : locale === 'ar' ? 'عيادة الأسنان NovaSmile' : 'NovaSmile Dental Clinic'}
-                </Link>
+                </a>
               </li>
               <li>
-                <Link href="/demos/architect" className="hover:text-brand-400 transition-colors">
+                <a
+                  href={demoUrls.architect}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-brand-400 transition-colors"
+                >
                   {locale === 'pt' ? 'Atelier Forma Arquitetura' : locale === 'ar' ? 'استوديو العمارة Atelier Forma' : 'Atelier Forma Architects'}
-                </Link>
+                </a>
               </li>
               <li>
                 <Link href="/blog" className="hover:text-brand-400 transition-colors">

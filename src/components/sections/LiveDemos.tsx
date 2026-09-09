@@ -2,7 +2,6 @@
 
 import React, { useState } from 'react';
 import Image from 'next/image';
-import Link from 'next/link';
 import { useLanguage } from '@/context/LanguageContext';
 import { DEMOS_DATA } from '@/config/demos';
 import { getWhatsAppUrl, WhatsAppIntent } from '@/config/contact';
@@ -203,13 +202,15 @@ export function LiveDemos() {
                   </div>
 
                   <div className="grid grid-cols-2 gap-2 sm:gap-3">
-                    <Link
+                    <a
                       href={demo.demoUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
                       className="w-full inline-flex items-center justify-center gap-1.5 px-3 py-2.5 rounded-xl bg-slate-900 hover:bg-slate-800 text-white dark:bg-brand-600 dark:hover:bg-brand-500 text-xs font-bold transition-all shadow-md group-hover:scale-[1.02]"
                     >
                       <span>{t.demos.viewDemo}</span>
                       <ArrowUpRight className={`w-3.5 h-3.5 ${isRTL ? 'rotate-[-90deg]' : ''}`} />
-                    </Link>
+                    </a>
 
                     <Button
                       href={whatsappUrl}

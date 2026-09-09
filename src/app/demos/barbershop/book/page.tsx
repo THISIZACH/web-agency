@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, Suspense } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useSearchParams } from 'next/navigation';
@@ -20,7 +20,7 @@ import {
   Sparkles,
 } from 'lucide-react';
 
-export default function BarbershopBookingPage() {
+function BarbershopBookingContent() {
   const { locale, isRTL } = useLanguage();
   const searchParams = useSearchParams();
 
@@ -601,7 +601,7 @@ export default function BarbershopBookingPage() {
                   <span>{locale === 'pt' ? 'Adicionar ao Calendário (.ics)' : locale === 'ar' ? 'إضافة للتقويم (.ics)' : 'Add to Calendar (.ics)'}</span>
                 </button>
                 <a
-                  href={`https://wa.me/351912345678?text=${encodeURIComponent(`North & Blade Appointment: ${confirmationCode} - ${selectedService.name.en} on ${selectedDate} at ${selectedTime}`)}`}
+                  href={`https://wa.me/351932020456?text=${encodeURIComponent(`North & Blade Appointment: ${confirmationCode} - ${selectedService.name.en} on ${selectedDate} at ${selectedTime}`)}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-full sm:w-auto px-6 py-3 rounded bg-[#25D366] hover:bg-[#20bd5a] text-white text-xs font-mono uppercase font-bold flex items-center justify-center gap-2 shadow-md"
@@ -634,6 +634,20 @@ export default function BarbershopBookingPage() {
         </div>
       </div>
     </div>
+  );
+}
+
+export default function BarbershopBookingPage() {
+  return (
+    <Suspense
+      fallback={
+        <div className="bg-[#0d0d0d] text-[#f5f0eb] min-h-screen py-16 flex items-center justify-center">
+          <div className="text-center font-mono text-sm text-[#d4af37]">Loading booking...</div>
+        </div>
+      }
+    >
+      <BarbershopBookingContent />
+    </Suspense>
   );
 }
 

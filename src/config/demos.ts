@@ -38,6 +38,15 @@ export interface DemoItem {
   accentColor: string;
 }
 
+export const demoUrls = {
+  barbershop: "https://nexaweb-barbershop.vercel.app/",
+  restaurant: "https://nexaweb-restaurant.vercel.app/",
+  dentist: "https://nexaweb-dentist.vercel.app/",
+  architect: "https://nexaweb-architect.vercel.app/",
+  ecommerce: "https://nexaweb-ecommerce.vercel.app/",
+  lawyer: "https://nexaweb-lawyer.vercel.app/",
+} as const;
+
 export const DEMOS_DATA: DemoItem[] = [
   {
     id: 'restaurant',
@@ -73,7 +82,7 @@ export const DEMOS_DATA: DemoItem[] = [
       pt: 'Conceito de Alta Conversão',
       ar: 'نموذج عالي التحويل',
     },
-    demoUrl: '/demos/restaurant',
+    demoUrl: demoUrls.restaurant,
     accentColor: '#d97706',
   },
   {
@@ -110,7 +119,7 @@ export const DEMOS_DATA: DemoItem[] = [
       pt: 'Excelência Médica',
       ar: 'معايير طبية معتمدة',
     },
-    demoUrl: '/demos/dentist',
+    demoUrl: demoUrls.dentist,
     accentColor: '#0891b2',
   },
   {
@@ -147,7 +156,7 @@ export const DEMOS_DATA: DemoItem[] = [
       pt: 'Luxo Editorial',
       ar: 'طابع تحريري فاخر',
     },
-    demoUrl: '/demos/architect',
+    demoUrl: demoUrls.architect,
     accentColor: '#78716c',
   },
   {
@@ -184,7 +193,7 @@ export const DEMOS_DATA: DemoItem[] = [
       pt: 'Luxo Masculino',
       ar: 'فخامة رجالية معاصرة',
     },
-    demoUrl: '/demos/barbershop',
+    demoUrl: demoUrls.barbershop,
     accentColor: '#d4af37',
   },
   {
@@ -221,7 +230,7 @@ export const DEMOS_DATA: DemoItem[] = [
       pt: 'Comércio de Alta Conversão',
       ar: 'متجر عالي المبيعات',
     },
-    demoUrl: '/demos/ecommerce',
+    demoUrl: demoUrls.ecommerce,
     accentColor: '#171717',
   },
   {
@@ -258,7 +267,7 @@ export const DEMOS_DATA: DemoItem[] = [
       pt: 'Prática de Prestígio',
       ar: 'مكانة قانونية مرموقة',
     },
-    demoUrl: '/demos/lawyer',
+    demoUrl: demoUrls.lawyer,
     accentColor: '#1e3a8a',
   },
 ];

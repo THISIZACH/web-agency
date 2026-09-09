@@ -48,11 +48,11 @@ export function DentistNav({ onOpenBooking }: DentistNavProps) {
           </div>
           <div className="flex items-center gap-4">
             <a
-              href="tel:+351912345678"
+              href="tel:+351932020456"
               className="flex items-center gap-1.5 font-semibold text-cyan-300 hover:text-white transition-colors"
             >
               <Phone className="w-3.5 h-3.5 text-cyan-400" />
-              <span>+351 912 345 678</span>
+              <span>+351 932 020 456</span>
             </a>
             <span className="text-slate-600">|</span>
             <span className="text-amber-300 font-medium">
@@ -159,11 +159,11 @@ export function DentistNav({ onOpenBooking }: DentistNavProps) {
               {locale === 'pt' ? 'Marcar Consulta Online' : locale === 'ar' ? 'حجز موعد كشف' : 'Book Appointment'}
             </Link>
             <a
-              href="tel:+351912345678"
+              href="tel:+351932020456"
               className="w-full py-2.5 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 text-center font-semibold text-xs flex items-center justify-center gap-2"
             >
               <Phone className="w-3.5 h-3.5 text-cyan-600" />
-              <span>+351 912 345 678</span>
+              <span>+351 932 020 456</span>
             </a>
           </div>
         </div>

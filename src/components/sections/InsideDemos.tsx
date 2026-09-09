@@ -3,6 +3,7 @@
 import React from 'react';
 import Link from 'next/link';
 import { useLanguage } from '@/context/LanguageContext';
+import { demoUrls } from '@/config/demos';
 import { Badge } from '@/components/ui/Badge';
 import {
   UtensilsCrossed,
@@ -34,7 +35,7 @@ export function InsideDemos() {
           : locale === 'ar'
           ? 'تصفح مقبلات وأطباق الشيف وقوائم الحلويات مع صور عالية الدقة وأسعار واضحة وعلامات مسببات الحساسية.'
           : 'Explore appetizers, chef specials, wine pairings, and desserts with high-resolution photography and allergen tags.',
-      demoLink: '/demos/restaurant/menu',
+      demoLink: demoUrls.restaurant,
       demoLabel:
         locale === 'pt' ? 'Ver Menu de Demonstração' : locale === 'ar' ? 'معاينة قائمة المطعم' : 'Explore Savor Menu',
     },
@@ -54,7 +55,7 @@ export function InsideDemos() {
           : locale === 'ar'
           ? 'عرض طبي موثوق يشمل 8 تخصصات علاجية ومعايير التعقيم وحجز مواعيد الفحص المباشر في 4 خطوات سهلة.'
           : 'Evidence-based dental presentation with treatment step breakdowns, ISO sterilization standards, and 4-step online booking wizard.',
-      demoLink: '/demos/dentist',
+      demoLink: demoUrls.dentist,
       demoLabel:
         locale === 'pt' ? 'Ver Clínica NovaSmile' : locale === 'ar' ? 'معاينة عيادة NovaSmile' : 'Explore NovaSmile',
     },
@@ -74,7 +75,7 @@ export function InsideDemos() {
           : locale === 'ar'
           ? 'تصميم تحريري فاخر يعرض تفاصيل المشاريع والمواد المستخدمة ومقالات العمارة ونموذج استفسار للمشاريع.'
           : 'Minimalist luxury presentation featuring architectural photography, material specifications, concept essays, and project parameter inquiries.',
-      demoLink: '/demos/architect/projects',
+      demoLink: demoUrls.architect,
       demoLabel:
         locale === 'pt' ? 'Ver Obras Atelier Forma' : locale === 'ar' ? 'استعراض مشاريع المعمار' : 'View Architectural Works',
     },
@@ -114,7 +115,7 @@ export function InsideDemos() {
           : locale === 'ar'
           ? 'اختبر تجاوب موقعك الفعلي عبر شريط التحكم العلوي لمشاهدة المظهر على شاشات الهواتف والأجهزة اللوحية والحواسيب.'
           : 'Clients can switch between 100% desktop, 768px tablet, and 390px mobile phone shells right from the sticky top bar.',
-      demoLink: '/demos/restaurant',
+      demoLink: demoUrls.restaurant,
       demoLabel:
         locale === 'pt' ? 'Testar Barra de Controlo' : locale === 'ar' ? 'تجربة شريط المعاينة' : 'Test Device Switcher',
     },
@@ -188,13 +189,25 @@ export function InsideDemos() {
               </div>
 
               <div className="pt-6 mt-6 border-t border-slate-200/60 dark:border-slate-800">
-                <Link
-                  href={feat.demoLink}
-                  className="inline-flex items-center gap-1.5 text-xs font-bold text-slate-900 dark:text-slate-200 hover:text-brand-600 dark:hover:text-brand-400 transition-colors"
-                >
-                  <span>{feat.demoLabel}</span>
-                  <ArrowRight className={`w-3.5 h-3.5 ${isRTL ? 'rotate-180' : ''}`} />
-                </Link>
+                {feat.demoLink.startsWith('http') ? (
+                  <a
+                    href={feat.demoLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 text-xs font-bold text-slate-900 dark:text-slate-200 hover:text-brand-600 dark:hover:text-brand-400 transition-colors"
+                  >
+                    <span>{feat.demoLabel}</span>
+                    <ArrowRight className={`w-3.5 h-3.5 ${isRTL ? 'rotate-180' : ''}`} />
+                  </a>
+                ) : (
+                  <Link
+                    href={feat.demoLink}
+                    className="inline-flex items-center gap-1.5 text-xs font-bold text-slate-900 dark:text-slate-200 hover:text-brand-600 dark:hover:text-brand-400 transition-colors"
+                  >
+                    <span>{feat.demoLabel}</span>
+                    <ArrowRight className={`w-3.5 h-3.5 ${isRTL ? 'rotate-180' : ''}`} />
+                  </Link>
+                )}
               </div>
             </div>
           ))}

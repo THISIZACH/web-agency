@@ -139,7 +139,7 @@ export default function LawyerConsultationPage() {
                 <span>Add to Calendar (.ics)</span>
               </button>
               <a
-                href={`https://wa.me/351912345678?text=${encodeURIComponent(`Meridian Legal Consultation Briefing: ${matterCode} - ${matterType} on ${preferredDate}`)}`}
+                href={`https://wa.me/351932020456?text=${encodeURIComponent(`Meridian Legal Consultation Briefing: ${matterCode} - ${matterType} on ${preferredDate}`)}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-full sm:w-auto px-6 py-3 rounded bg-[#25D366] hover:bg-[#20bd5a] text-white text-xs font-mono uppercase font-bold flex items-center justify-center gap-2 shadow-md"

@@ -78,7 +78,7 @@ export default function EcommerceContactPage() {
 
               <div className="pt-2">
                 <a
-                  href="https://wa.me/351912345678?text=Hello%20VELORA%20Concierge"
+                  href="https://wa.me/351932020456?text=Hello%20VELORA%20Concierge"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-full py-3 rounded-full bg-[#25D366] hover:bg-[#20bd5a] text-white text-xs font-mono uppercase font-bold flex items-center justify-center gap-2 shadow-md transition-all"

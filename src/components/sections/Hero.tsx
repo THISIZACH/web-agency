@@ -2,8 +2,8 @@
 
 import React from 'react';
 import Image from 'next/image';
-import Link from 'next/link';
 import { useLanguage } from '@/context/LanguageContext';
+import { demoUrls } from '@/config/demos';
 import { getWhatsAppUrl } from '@/config/contact';
 import { Button } from '@/components/ui/Button';
 import { ArrowUpRight, CheckCircle2, ShieldCheck, Zap, Sparkles, Smartphone, Laptop } from 'lucide-react';
@@ -95,8 +95,10 @@ export function Hero() {
             {/* Mockup Screen Grid */}
             <div className="relative rounded-2xl overflow-hidden bg-slate-950 border border-slate-800 grid grid-cols-1 md:grid-cols-3 gap-3 p-3 sm:p-4">
               {/* Card 1: Restaurant Preview */}
-              <Link
-                href="/demos/restaurant"
+              <a
+                href={demoUrls.restaurant}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="group relative rounded-xl overflow-hidden border border-slate-800 bg-slate-900 hover:border-amber-500/50 transition-all duration-300"
               >
                 <div className="h-44 relative overflow-hidden">
@@ -119,17 +121,19 @@ export function Hero() {
                   </h4>
                   <p className="text-slate-400 text-xs mt-1 line-clamp-2">
                     {locale === 'pt'
-                      ? 'Ementa digital, reservas de mesas e galeria fotográfica de alta qualidade.'
+                       ? 'Ementa digital, reservas de mesas e galeria fotográfica de alta qualidade.'
                       : locale === 'ar'
                       ? 'قوائم طعام رقمية، حجز طاولات مباشر، وتصميم أنيق للضيافة.'
                       : 'Digital menus, table booking, and artisan dining presentation.'}
                   </p>
                 </div>
-              </Link>
+              </a>
 
               {/* Card 2: Dentist Preview */}
-              <Link
-                href="/demos/dentist"
+              <a
+                href={demoUrls.dentist}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="group relative rounded-xl overflow-hidden border border-slate-800 bg-slate-900 hover:border-cyan-500/50 transition-all duration-300"
               >
                 <div className="h-44 relative overflow-hidden">
@@ -157,11 +161,13 @@ export function Hero() {
                       : 'Clinical treatments, 4-step appointment booking, and interactive smile preview.'}
                   </p>
                 </div>
-              </Link>
+              </a>
 
               {/* Card 3: Architecture Preview */}
-              <Link
-                href="/demos/architect"
+              <a
+                href={demoUrls.architect}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="group relative rounded-xl overflow-hidden border border-slate-800 bg-slate-900 hover:border-amber-500/50 transition-all duration-300"
               >
                 <div className="h-44 relative overflow-hidden">
@@ -189,7 +195,7 @@ export function Hero() {
                       : 'Luxury editorial portfolio, dynamic project case studies, and spatial design inquiries.'}
                   </p>
                 </div>
-              </Link>
+              </a>
             </div>
           </div>
         </div>
