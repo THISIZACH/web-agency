@@ -5,7 +5,7 @@ import { useLanguage } from '@/context/LanguageContext';
 import { CONTACT_CONFIG, getWhatsAppUrl } from '@/config/contact';
 import { Badge } from '@/components/ui/Badge';
 import { Button } from '@/components/ui/Button';
-import { MessageCircle, Mail, Send, CheckCircle, AlertCircle, Phone, ArrowUpRight, Loader2 } from 'lucide-react';
+import { MessageCircle, Mail, Send, CheckCircle, AlertCircle, Phone, ArrowUpRight, Loader2, Copy, Check } from 'lucide-react';
 
 export function ContactSection() {
   const { t, locale, pricing, isRTL } = useLanguage();
@@ -23,6 +23,24 @@ export function ContactSection() {
   const [errors, setErrors] = useState<{ [key: string]: string }>({});
   const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
+  const [copiedSuccess, setCopiedSuccess] = useState(false);
+  const [copiedCard, setCopiedCard] = useState(false);
+
+  const handleCopyEmail = (source: 'card' | 'success') => {
+    if (typeof navigator !== 'undefined' && navigator.clipboard) {
+      navigator.clipboard.writeText(CONTACT_CONFIG.email).then(() => {
+        if (source === 'success') {
+          setCopiedSuccess(true);
+          setTimeout(() => setCopiedSuccess(false), 2000);
+        } else {
+          setCopiedCard(true);
+          setTimeout(() => setCopiedCard(false), 2000);
+        }
+      }).catch((err) => {
+        console.error('Failed to copy email:', err);
+      });
+    }
+  };
 
   const validate = () => {
     const newErrors: { [key: string]: string } = {};
@@ -139,23 +157,48 @@ export function ContactSection() {
             </div>
 
             {/* Email Card */}
-            <div className="p-5 sm:p-7 md:p-8 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm">
-              <div className="w-12 h-12 rounded-2xl bg-sky-500/10 text-sky-500 flex items-center justify-center mb-5">
-                <Mail className="w-6 h-6" />
+            <div className="p-5 sm:p-7 md:p-8 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm flex flex-col justify-between">
+              <div>
+                <div className="w-12 h-12 rounded-2xl bg-sky-500/10 text-sky-500 flex items-center justify-center mb-5">
+                  <Mail className="w-6 h-6" />
+                </div>
+                <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-2">
+                  {t.contact.emailCardTitle}
+                </h3>
+                <p className="text-sm text-slate-600 dark:text-slate-400 mb-6">
+                  {t.contact.emailCardDesc}
+                </p>
               </div>
-              <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-2">
-                {t.contact.emailCardTitle}
-              </h3>
-              <p className="text-sm text-slate-600 dark:text-slate-400 mb-6">
-                {t.contact.emailCardDesc}
-              </p>
-              <a
-                href={`mailto:${CONTACT_CONFIG.email}`}
-                className="inline-flex items-center gap-2 text-sm font-semibold text-brand-600 dark:text-brand-400 hover:underline"
+              <button
+                type="button"
+                onClick={() => handleCopyEmail('card')}
+                className={`w-full group inline-flex items-center justify-between px-4 py-3 rounded-2xl border transition-all duration-200 active:scale-[0.98] cursor-pointer text-left ${
+                  copiedCard
+                    ? 'border-emerald-500 bg-emerald-50/80 dark:bg-emerald-950/40 text-emerald-600 dark:text-emerald-400'
+                    : 'border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-800/60 hover:border-brand-500/50 hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-300'
+                }`}
+                title="Click to copy email"
               >
-                <span>{CONTACT_CONFIG.email}</span>
-                <ArrowUpRight className="w-4 h-4" />
-              </a>
+                <div className="flex items-center gap-2.5 min-w-0 pr-2">
+                  <Mail className="w-4 h-4 text-brand-600 dark:text-brand-400 shrink-0" />
+                  <span className="text-xs sm:text-sm font-semibold truncate">
+                    {CONTACT_CONFIG.email}
+                  </span>
+                </div>
+                <div className="flex items-center gap-1.5 shrink-0">
+                  {copiedCard ? (
+                    <span className="inline-flex items-center gap-1 text-xs font-bold text-emerald-600 dark:text-emerald-400 animate-in fade-in duration-150">
+                      <Check className="w-4 h-4 text-emerald-500" />
+                      <span>{locale === 'pt' ? 'Copiado!' : locale === 'ar' ? 'تم النسخ!' : 'Copied!'}</span>
+                    </span>
+                  ) : (
+                    <span className="inline-flex items-center gap-1 text-xs font-medium text-slate-500 dark:text-slate-400 group-hover:text-brand-600 dark:group-hover:text-brand-400 transition-colors">
+                      <Copy className="w-3.5 h-3.5" />
+                      <span className="hidden sm:inline">{locale === 'pt' ? 'Copiar' : locale === 'ar' ? 'نسخ' : 'Copy'}</span>
+                    </span>
+                  )}
+                </div>
+              </button>
             </div>
           </div>
 
@@ -200,13 +243,28 @@ export function ContactSection() {
                       <MessageCircle className="w-4 h-4 shrink-0" />
                       <span>{locale === 'pt' ? 'Continuar no WhatsApp' : locale === 'ar' ? 'المتابعة عبر واتساب' : 'Continue via WhatsApp'}</span>
                     </a>
-                    <a
-                      href="mailto:contact.nexawebstudio.uk@gmail.com?subject=Project%20Inquiry%20-%20NexaWeb%20Studio"
-                      className="w-full sm:w-auto inline-flex items-center justify-center font-medium rounded-xl transition-all duration-200 active:scale-[0.98] text-sm px-5 py-2.5 gap-2 border border-slate-300 dark:border-slate-700 text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800/60"
+                    <button
+                      type="button"
+                      onClick={() => handleCopyEmail('success')}
+                      className={`w-full sm:w-auto inline-flex items-center justify-center font-medium rounded-xl transition-all duration-200 active:scale-[0.98] text-sm px-5 py-2.5 gap-2 border cursor-pointer ${
+                        copiedSuccess
+                          ? 'border-emerald-500 bg-emerald-50 dark:bg-emerald-950/40 text-emerald-600 dark:text-emerald-400 font-semibold'
+                          : 'border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800/80 text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 hover:border-slate-400'
+                      }`}
+                      title="Click to copy email address"
                     >
-                      <Mail className="w-4 h-4 shrink-0" />
-                      <span>{locale === 'pt' ? 'Enviar E-mail' : locale === 'ar' ? 'إرسال بريد إلكتروني' : 'Send Direct Email'}</span>
-                    </a>
+                      {copiedSuccess ? (
+                        <>
+                          <Check className="w-4 h-4 text-emerald-500 shrink-0 animate-in zoom-in-50 duration-150" />
+                          <span>{locale === 'pt' ? 'Copiado!' : locale === 'ar' ? 'تم النسخ!' : 'Copied!'}</span>
+                        </>
+                      ) : (
+                        <>
+                          <Copy className="w-4 h-4 text-slate-500 dark:text-slate-400 shrink-0" />
+                          <span className="font-mono text-xs sm:text-sm">contact.nexawebstudio.uk@gmail.com</span>
+                        </>
+                      )}
+                    </button>
                   </div>
 
                   <div className="pt-2">
