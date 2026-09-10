@@ -5,7 +5,7 @@ import { useLanguage } from '@/context/LanguageContext';
 import { CONTACT_CONFIG, getWhatsAppUrl } from '@/config/contact';
 import { Badge } from '@/components/ui/Badge';
 import { Button } from '@/components/ui/Button';
-import { MessageCircle, Mail, Send, CheckCircle, AlertCircle, Phone, ArrowUpRight } from 'lucide-react';
+import { MessageCircle, Mail, Send, CheckCircle, AlertCircle, Phone, ArrowUpRight, Loader2 } from 'lucide-react';
 
 export function ContactSection() {
   const { t, locale, pricing, isRTL } = useLanguage();
@@ -22,6 +22,7 @@ export function ContactSection() {
 
   const [errors, setErrors] = useState<{ [key: string]: string }>({});
   const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
   const validate = () => {
     const newErrors: { [key: string]: string } = {};
@@ -41,14 +42,56 @@ export function ContactSection() {
     return Object.keys(newErrors).length === 0;
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!validate()) return;
     setStatus('submitting');
+    setErrorMessage(null);
 
-    setTimeout(() => {
-      setStatus('success');
-    }, 600);
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          businessName: formData.businessName,
+          email: formData.email,
+          phone: formData.phone,
+          businessType: formData.businessType,
+          goals: formData.needs,
+          needs: formData.needs,
+          message: formData.message,
+        }),
+      });
+
+      const data = await res.json();
+
+      if (res.ok && data.success) {
+        setStatus('success');
+      } else {
+        setStatus('error');
+        setErrorMessage(
+          data.error ||
+            (locale === 'pt'
+              ? 'Ocorreu um erro ao enviar a sua mensagem. Por favor tente novamente ou contacte-nos pelo WhatsApp.'
+              : locale === 'ar'
+              ? 'حدث خطأ أثناء إرسال طلبك. يرجى المحاولة مرة أخرى أو التواصل معنا عبر واتساب.'
+              : 'Failed to send your inquiry. Please try again or reach out to us via WhatsApp.')
+        );
+      }
+    } catch (err: any) {
+      console.error('Contact form submission error:', err);
+      setStatus('error');
+      setErrorMessage(
+        locale === 'pt'
+          ? 'Erro de rede ou de ligação. Por favor tente novamente ou contacte-nos pelo WhatsApp.'
+          : locale === 'ar'
+          ? 'خطأ في الاتصال بالشبكة. يرجى المحاولة مرة أخرى أو التواصل عبر واتساب.'
+          : 'Network or server error. Please try again or reach out to us via WhatsApp.'
+      );
+    }
   };
 
   const whatsappUrl = getWhatsAppUrl(locale, 'general');
@@ -168,6 +211,7 @@ export function ContactSection() {
                       type="button"
                       onClick={() => {
                         setStatus('idle');
+                        setErrorMessage(null);
                         setErrors({});
                         setFormData({
                           name: '',
@@ -337,12 +381,23 @@ export function ContactSection() {
                     />
                   </div>
 
+                  {status === 'error' && errorMessage && (
+                    <div className="p-4 rounded-xl bg-red-500/10 border border-red-500/30 text-red-600 dark:text-red-400 text-sm flex items-start gap-3 animate-in fade-in duration-200">
+                      <AlertCircle className="w-5 h-5 shrink-0 mt-0.5" />
+                      <div className="flex-1">
+                        <p className="font-semibold">{locale === 'pt' ? 'Não foi possível enviar' : locale === 'ar' ? 'تعذر الإرسال' : 'Submission failed'}</p>
+                        <p className="text-xs mt-0.5 opacity-90">{errorMessage}</p>
+                      </div>
+                    </div>
+                  )}
+
                   <Button
                     type="submit"
                     variant="primary"
                     size="lg"
-                    className="w-full shadow-lg shadow-brand-500/20"
+                    className="w-full shadow-lg shadow-brand-500/20 flex items-center justify-center gap-2"
                     disabled={status === 'submitting'}
+                    icon={status === 'submitting' ? <Loader2 className="w-4 h-4 animate-spin" /> : undefined}
                   >
                     {status === 'submitting'
                       ? t.contact.form.submitting
