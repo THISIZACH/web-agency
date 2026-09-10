@@ -185,25 +185,28 @@ export function ContactSection() {
                   </div>
 
                   <div className="flex flex-col sm:flex-row items-center justify-center gap-3 pt-2">
-                    <Button
-                      href={whatsappUrl}
-                      isExternal
-                      variant="whatsapp"
-                      size="md"
-                      className="w-full sm:w-auto"
-                      icon={<MessageCircle className="w-4 h-4" />}
+                    <a
+                      href={`https://wa.me/${CONTACT_CONFIG.whatsappNumber}?text=${encodeURIComponent(
+                        locale === 'pt'
+                          ? 'Olá NexaWeb Studio! Acabei de enviar um pedido de proposta no vosso website.'
+                          : locale === 'ar'
+                          ? 'مرحباً NexaWeb Studio! لقد قمت للتو بإرسال استفسار عبر موقعكم الإلكتروني.'
+                          : 'Hello NexaWeb Studio! I just submitted a project inquiry on your website.'
+                      )}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="w-full sm:w-auto inline-flex items-center justify-center font-medium rounded-xl transition-all duration-200 active:scale-[0.98] text-sm px-5 py-2.5 gap-2 bg-[#25D366] hover:bg-[#20bd5a] text-white shadow-[#25D366]/25 hover:shadow-lg"
                     >
-                      {locale === 'pt' ? 'Continuar no WhatsApp' : locale === 'ar' ? 'المتابعة عبر واتساب' : 'Continue via WhatsApp'}
-                    </Button>
-                    <Button
-                      href={`mailto:${CONTACT_CONFIG.email}?subject=Website%20Inquiry%20from%20${encodeURIComponent(formData.name)}`}
-                      variant="outline"
-                      size="md"
-                      className="w-full sm:w-auto"
-                      icon={<Mail className="w-4 h-4" />}
+                      <MessageCircle className="w-4 h-4 shrink-0" />
+                      <span>{locale === 'pt' ? 'Continuar no WhatsApp' : locale === 'ar' ? 'المتابعة عبر واتساب' : 'Continue via WhatsApp'}</span>
+                    </a>
+                    <a
+                      href="mailto:contact.nexawebstudio.uk@gmail.com?subject=Project%20Inquiry%20-%20NexaWeb%20Studio"
+                      className="w-full sm:w-auto inline-flex items-center justify-center font-medium rounded-xl transition-all duration-200 active:scale-[0.98] text-sm px-5 py-2.5 gap-2 border border-slate-300 dark:border-slate-700 text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800/60"
                     >
-                      {locale === 'pt' ? 'Enviar E-mail' : locale === 'ar' ? 'إرسال بريد إلكتروني' : 'Send Direct Email'}
-                    </Button>
+                      <Mail className="w-4 h-4 shrink-0" />
+                      <span>{locale === 'pt' ? 'Enviar E-mail' : locale === 'ar' ? 'إرسال بريد إلكتروني' : 'Send Direct Email'}</span>
+                    </a>
                   </div>
 
                   <div className="pt-2">
