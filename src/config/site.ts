@@ -7,7 +7,7 @@ export const SITE_CONFIG = {
     pt: 'Websites modernos para empresas que pretendem uma presença online profissional. Websites rápidos e otimizados para SEO a partir de 299€ com total propriedade.',
     ar: 'مواقع إلكترونية عصرية للشركات وأصحاب الأعمال الراغبين في مظهر احترافي على الإنترنت. مواقع سريعة وفائقة الجودة تبدأ من $299 بملكية كاملة 100%.',
   },
-  url: 'https://nexawebstudio.com',
+  url: 'https://nexawebstudio.uk',
   author: 'NexaWeb Studio Team',
   defaultLocale: 'en' as const,
   supportedLocales: ['en', 'pt', 'ar'] as const,

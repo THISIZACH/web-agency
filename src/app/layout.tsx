@@ -22,10 +22,9 @@ const cairo = Cairo({
 });
 
 export const metadata: Metadata = {
-  title: 'NexaWeb Studio | Modern Websites Starting at €299',
-  description:
-    'Modern Websites for Businesses That Want to Look Professional Online. Fast, mobile-responsive, and SEO-ready websites starting at €299 with 100% client ownership.',
-  metadataBase: new URL(SITE_CONFIG.url),
+  metadataBase: new URL('https://nexawebstudio.uk'),
+  title: 'NexaWeb Studio — Modern Websites for Businesses',
+  description: 'High-converting custom web design and lead generation websites.',
   icons: {
     icon: '/logo-icon.svg',
     shortcut: '/logo-icon.svg',
@@ -33,13 +32,12 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: 'NexaWeb Studio — Modern Websites for Businesses',
-    description:
-      'High-converting bespoke websites for restaurants, salons, consultancies, and local businesses. Launch in days with full ownership starting at €299.',
-    url: SITE_CONFIG.url,
-    siteName: SITE_CONFIG.name,
+    description: 'High-converting custom web design and lead generation websites.',
+    url: 'https://nexawebstudio.uk',
+    siteName: 'NexaWeb Studio',
     images: [
       {
-        url: `${SITE_CONFIG.url}/images/agency/og-preview.jpg`,
+        url: '/og-image.png',
         width: 1200,
         height: 630,
         alt: 'NexaWeb Studio Preview',
@@ -50,16 +48,16 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'NexaWeb Studio | Modern Websites Starting at €299',
-    description:
-      'High-converting bespoke websites for businesses. Launch in days with full ownership starting at €299.',
+    title: 'NexaWeb Studio — Modern Websites for Businesses',
+    description: 'High-converting custom web design and lead generation websites.',
+    images: ['/og-image.png'],
   },
   alternates: {
-    canonical: SITE_CONFIG.url,
+    canonical: 'https://nexawebstudio.uk',
     languages: {
-      en: `${SITE_CONFIG.url}?lang=en`,
-      'pt-PT': `${SITE_CONFIG.url}?lang=pt`,
-      ar: `${SITE_CONFIG.url}?lang=ar`,
+      en: 'https://nexawebstudio.uk?lang=en',
+      'pt-PT': 'https://nexawebstudio.uk?lang=pt',
+      ar: 'https://nexawebstudio.uk?lang=ar',
     },
   },
 };
