@@ -26,9 +26,9 @@ export const metadata: Metadata = {
   title: 'NexaWeb Studio — Modern Websites for Businesses',
   description: 'High-converting custom web design and lead generation websites.',
   icons: {
-    icon: '/logo-icon.svg',
-    shortcut: '/logo-icon.svg',
-    apple: '/logo-icon.svg',
+    icon: '/logo-icon.png',
+    shortcut: '/logo-icon.png',
+    apple: '/logo-icon.png',
   },
   openGraph: {
     title: 'NexaWeb Studio — Modern Websites for Businesses',
@@ -37,10 +37,16 @@ export const metadata: Metadata = {
     siteName: 'NexaWeb Studio',
     images: [
       {
-        url: '/og-image.png',
+        url: '/og-image-wide.png',
         width: 1200,
         height: 630,
-        alt: 'NexaWeb Studio Preview',
+        alt: 'NexaWeb Studio',
+      },
+      {
+        url: '/og-image.png',
+        width: 512,
+        height: 512,
+        alt: 'NexaWeb Studio Icon',
       },
     ],
     locale: 'en_US',
@@ -50,7 +56,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'NexaWeb Studio — Modern Websites for Businesses',
     description: 'High-converting custom web design and lead generation websites.',
-    images: ['/og-image.png'],
+    images: ['/og-image-wide.png'],
   },
   alternates: {
     canonical: 'https://nexawebstudio.uk',
@@ -71,6 +77,7 @@ export default function RootLayout({
     <html lang="en" dir="ltr" className="dark scroll-smooth" suppressHydrationWarning>
       <head>
         <link rel="icon" href="/logo-icon.svg" type="image/svg+xml" />
+        <link rel="apple-touch-icon" href="/logo-icon.png" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link
