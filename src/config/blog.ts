@@ -1,39 +1,33 @@
 import { Locale } from './pricing';
 
+export type LocalizedString = {
+  en: string;
+  pt: string;
+  ar: string;
+  [key: string]: string;
+};
+
+export type LocalizedArray = {
+  en: string[];
+  pt: string[];
+  ar: string[];
+  [key: string]: string[];
+};
+
 export interface BlogPost {
   slug: string;
-  category: {
-    en: string;
-    pt: string;
-    ar: string;
-  };
+  category: LocalizedString;
   date: string;
   readTimeMinutes: number;
   author: {
     name: string;
-    role: {
-      en: string;
-      pt: string;
-      ar: string;
-    };
+    role: LocalizedString;
     avatar: string;
   };
   coverImage: string;
-  title: {
-    en: string;
-    pt: string;
-    ar: string;
-  };
-  excerpt: {
-    en: string;
-    pt: string;
-    ar: string;
-  };
-  content: {
-    en: string[];
-    pt: string[];
-    ar: string[];
-  };
+  title: LocalizedString;
+  excerpt: LocalizedString;
+  content: LocalizedArray;
 }
 
 export const BLOG_POSTS: BlogPost[] = [

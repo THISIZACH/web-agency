@@ -8,6 +8,7 @@ import { CONTACT_CONFIG, getWhatsAppUrl } from '@/config/contact';
 import { SITE_CONFIG } from '@/config/site';
 import { demoUrls } from '@/config/demos';
 import { Sparkles, MessageCircle, Mail, Phone, Clock, ArrowUpRight } from 'lucide-react';
+import { LanguageSwitcher } from './LanguageSwitcher';
 
 export function Footer() {
   const pathname = usePathname();
@@ -100,7 +101,7 @@ export function Footer() {
                   rel="noopener noreferrer"
                   className="hover:text-brand-400 transition-colors"
                 >
-                  {locale === 'pt' ? 'Modelo de Restaurante' : locale === 'ar' ? 'نموذج المطاعم' : 'Restaurant Concept'}
+                  {locale === 'pt' ? 'Modelo de Restaurante' : locale === 'ar' ? 'نموذج المطاعم' : locale === 'fr' ? 'Concept Restaurant' : 'Restaurant Concept'}
                 </a>
               </li>
               <li>
@@ -160,7 +161,7 @@ export function Footer() {
               <li className="flex items-start gap-2.5">
                 <Clock className="w-4 h-4 text-brand-400 shrink-0 mt-0.5" />
                 <span className="text-xs leading-relaxed">
-                  {CONTACT_CONFIG.officeHours[locale]}
+                  {CONTACT_CONFIG.officeHours[locale] || CONTACT_CONFIG.officeHours.en}
                 </span>
               </li>
             </ul>
@@ -170,13 +171,14 @@ export function Footer() {
         {/* Bottom Bar: Copyright & Legal */}
         <div className="mt-14 pt-8 border-t border-slate-900 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-400">
           <p>{t.footer.copyright}</p>
-          <div className="flex items-center gap-6">
+          <div className="flex flex-wrap items-center gap-4 sm:gap-6">
             <Link href="/privacy" className="hover:text-slate-200 transition-colors">
               {t.footer.privacy}
             </Link>
             <Link href="/terms" className="hover:text-slate-200 transition-colors">
               {t.footer.terms}
             </Link>
+            <LanguageSwitcher />
           </div>
         </div>
       </div>

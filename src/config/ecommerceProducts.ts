@@ -1,22 +1,36 @@
+export type LocalizedString = {
+  en: string;
+  pt: string;
+  ar: string;
+  [key: string]: string;
+};
+
+export type LocalizedArray = {
+  en: string[];
+  pt: string[];
+  ar: string[];
+  [key: string]: string[];
+};
+
 export interface ProductVariant {
-  colorName: { en: string; pt: string; ar: string };
+  colorName: LocalizedString;
   colorHex: string;
 }
 
 export interface ProductItem {
   id: string;
   slug: string;
-  name: { en: string; pt: string; ar: string };
-  subtitle: { en: string; pt: string; ar: string };
+  name: LocalizedString;
+  subtitle: LocalizedString;
   category: 'outerwear' | 'tailoring' | 'knitwear' | 'leather-goods' | 'accessories' | 'footwear';
   price: number;
   currency: string;
-  badge?: { en: string; pt: string; ar: string };
+  badge?: LocalizedString;
   image: string;
   gallery: string[];
-  description: { en: string; pt: string; ar: string };
-  details: { en: string[]; pt: string[]; ar: string[] };
-  materials: { en: string; pt: string; ar: string };
+  description: LocalizedString;
+  details: LocalizedArray;
+  materials: LocalizedString;
   sizes: string[];
   colors: ProductVariant[];
   inStock: boolean;
@@ -512,7 +526,24 @@ export const ECOMMERCE_PRODUCTS: ProductItem[] = [
   },
 ];
 
-export const ECOMMERCE_COLLECTIONS = [
+export interface EcommerceCollection {
+  slug: string;
+  title: LocalizedString;
+  subtitle: LocalizedString;
+  image: string;
+  itemCount: string;
+}
+
+export interface EcommerceJournalArticle {
+  slug: string;
+  title: LocalizedString;
+  excerpt: LocalizedString;
+  date: string;
+  author: string;
+  image: string;
+}
+
+export const ECOMMERCE_COLLECTIONS: EcommerceCollection[] = [
   {
     slug: 'autumn-winter-26',
     title: { en: 'Autumn / Winter 2026', pt: 'Outono / Inverno 2026', ar: 'مجموعة خريف / شتاء 2026' },
@@ -543,7 +574,7 @@ export const ECOMMERCE_COLLECTIONS = [
   },
 ];
 
-export const ECOMMERCE_JOURNAL = [
+export const ECOMMERCE_JOURNAL: EcommerceJournalArticle[] = [
   {
     slug: 'the-weight-of-cashmere',
     title: {

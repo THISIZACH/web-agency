@@ -1,4 +1,4 @@
-export type Locale = 'en' | 'pt' | 'ar';
+export type Locale = 'en' | 'pt' | 'fr' | 'ar';
 
 export interface PricingConfig {
   locale: Locale;
@@ -43,6 +43,20 @@ export const PRICING_BY_LOCALE: Record<Locale, PricingConfig> = {
     maintenanceMonthlyFormatted: '49€/mês',
     maintenanceLabel: 'por mês',
     currencyNote: 'Todos os preços em EUR (€). Sem custos ocultos.',
+  },
+  fr: {
+    locale: 'fr',
+    currencySymbol: '€',
+    currencyCode: 'EUR',
+    isSymbolPrefix: false,
+    basePriceValue: 299,
+    basePriceFormatted: '299€',
+    updatePriceValue: 30,
+    updatePriceFormatted: '30€',
+    maintenanceMonthlyValue: 49,
+    maintenanceMonthlyFormatted: '49€/mois',
+    maintenanceLabel: 'par mois',
+    currencyNote: 'Tous les prix sont en EUR (€). Aucun frais caché.',
   },
   ar: {
     locale: 'ar',

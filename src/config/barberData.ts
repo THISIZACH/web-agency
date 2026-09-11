@@ -1,23 +1,30 @@
 import { Locale } from './pricing';
 
+export type LocalizedString = {
+  en: string;
+  pt: string;
+  ar: string;
+  [key: string]: string;
+};
+
 export interface BarberService {
   id: string;
-  name: { en: string; pt: string; ar: string };
+  name: LocalizedString;
   category: string;
   duration: string;
-  price: { en: string; pt: string; ar: string };
-  desc: { en: string; pt: string; ar: string };
+  price: LocalizedString;
+  desc: LocalizedString;
   image: string;
-  badge?: { en: string; pt: string; ar: string };
+  badge?: LocalizedString;
 }
 
 export interface MasterBarber {
   id: string;
   name: string;
-  role: { en: string; pt: string; ar: string };
+  role: LocalizedString;
   experience: string;
-  specialty: { en: string; pt: string; ar: string };
-  bio: { en: string; pt: string; ar: string };
+  specialty: LocalizedString;
+  bio: LocalizedString;
   image: string;
   instagram: string;
 }
@@ -232,7 +239,13 @@ export const BARBER_GALLERY = [
   { image: '/images/barbershop/gallery-06.jpg', title: 'Vintage Leather Belmont Chair', category: 'Atmosphere' },
 ];
 
-export const BARBER_TESTIMONIALS = [
+export interface BarberTestimonial {
+  quote: LocalizedString;
+  author: string;
+  role: LocalizedString;
+}
+
+export const BARBER_TESTIMONIALS: BarberTestimonial[] = [
   {
     quote: {
       en: 'The level of craftsmanship at North & Blade is on par with Mayfair London. Marcus understood my hair density immediately. Flawless taper every single time.',

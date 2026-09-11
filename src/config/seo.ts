@@ -32,6 +32,7 @@ export function generateMetadataConfig({
       languages: {
         en: `${SITE_CONFIG.url}?lang=en`,
         'pt-PT': `${SITE_CONFIG.url}?lang=pt`,
+        fr: `${SITE_CONFIG.url}?lang=fr`,
         ar: `${SITE_CONFIG.url}?lang=ar`,
       },
     },
@@ -48,7 +49,7 @@ export function generateMetadataConfig({
           alt: siteTitle,
         },
       ],
-      locale: locale === 'pt' ? 'pt_PT' : locale === 'ar' ? 'ar_AR' : 'en_US',
+      locale: locale === 'pt' ? 'pt_PT' : locale === 'ar' ? 'ar_AR' : locale === 'fr' ? 'fr_FR' : 'en_US',
       type: 'website',
     },
     twitter: {

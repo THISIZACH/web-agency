@@ -63,6 +63,7 @@ export const metadata: Metadata = {
     languages: {
       en: 'https://nexawebstudio.uk?lang=en',
       'pt-PT': 'https://nexawebstudio.uk?lang=pt',
+      fr: 'https://nexawebstudio.uk?lang=fr',
       ar: 'https://nexawebstudio.uk?lang=ar',
     },
   },
@@ -105,6 +106,9 @@ export default function RootLayout({
                   document.documentElement.classList.add('rtl');
                 } else if (locale === 'pt') {
                   document.documentElement.lang = 'pt-PT';
+                  document.documentElement.dir = 'ltr';
+                } else if (locale === 'fr') {
+                  document.documentElement.lang = 'fr';
                   document.documentElement.dir = 'ltr';
                 } else {
                   document.documentElement.lang = 'en';

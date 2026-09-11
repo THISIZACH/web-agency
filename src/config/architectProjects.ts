@@ -1,38 +1,32 @@
+export type LocalizedString = {
+  en: string;
+  pt: string;
+  ar: string;
+  [key: string]: string;
+};
+
+export type LocalizedArray = {
+  en: string[];
+  pt: string[];
+  ar: string[];
+  [key: string]: string[];
+};
+
 export interface ArchitectProject {
   slug: string;
-  title: {
-    en: string;
-    pt: string;
-    ar: string;
-  };
-  typology: {
-    en: string;
-    pt: string;
-    ar: string;
-  };
+  title: LocalizedString;
+  typology: LocalizedString;
   category: 'residential' | 'hospitality' | 'commercial' | 'interior';
   location: string;
   year: string;
   area: string;
   heroImage: string;
   galleryImages: string[];
-  excerpt: {
-    en: string;
-    pt: string;
-    ar: string;
-  };
-  concept: {
-    en: string;
-    pt: string;
-    ar: string;
-  };
-  materials: {
-    en: string[];
-    pt: string[];
-    ar: string[];
-  };
+  excerpt: LocalizedString;
+  concept: LocalizedString;
+  materials: LocalizedArray;
   details: {
-    scope: { en: string; pt: string; ar: string };
+    scope: LocalizedString;
     energyRating: string;
     duration: string;
   };

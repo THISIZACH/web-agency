@@ -63,13 +63,13 @@ export function DemoPreviewBar({ demoTitle, category, intent }: DemoPreviewBarPr
             className="inline-flex items-center gap-1 px-2 sm:px-3 py-1 sm:py-1.5 rounded-lg bg-slate-800/90 hover:bg-slate-700 text-slate-200 hover:text-white transition-all font-semibold text-xs border border-slate-700/60 shrink-0"
           >
             <ArrowLeft className={`w-3.5 h-3.5 shrink-0 ${isRTL ? 'rotate-180' : ''}`} />
-            <span className="hidden sm:inline">{locale === 'pt' ? '← Voltar à NexaWeb Studio' : locale === 'ar' ? '← العودة إلى NexaWeb Studio' : '← Back to NexaWeb Studio'}</span>
-            <span className="sm:hidden text-[11px]">{locale === 'pt' ? 'Voltar' : locale === 'ar' ? 'عودة' : 'Back'}</span>
+            <span className="hidden sm:inline">{locale === 'pt' ? '← Voltar à NexaWeb Studio' : locale === 'ar' ? '← العودة إلى NexaWeb Studio' : locale === 'fr' ? '← Retour à NexaWeb Studio' : '← Back to NexaWeb Studio'}</span>
+            <span className="sm:hidden text-[11px]">{locale === 'pt' ? 'Voltar' : locale === 'ar' ? 'عودة' : locale === 'fr' ? 'Retour' : 'Back'}</span>
           </Link>
 
           <div className="hidden sm:flex items-center gap-2 border-l border-slate-800 pl-3">
             <span className="text-amber-400 font-bold uppercase tracking-wider text-[11px]">
-              {locale === 'pt' ? 'DEMO AO VIVO —' : locale === 'ar' ? 'معاينة حية —' : 'LIVE DEMO —'}
+              {locale === 'pt' ? 'DEMO AO VIVO —' : locale === 'ar' ? 'معاينة حية —' : locale === 'fr' ? 'DÉMO EN DIRECT —' : 'LIVE DEMO —'}
             </span>
             <span className="font-bold text-white text-xs">{demoTitle}</span>
             <span className="hidden md:inline px-2 py-0.5 rounded bg-slate-800 text-slate-400 text-[10px] uppercase font-semibold">
@@ -81,7 +81,7 @@ export function DemoPreviewBar({ demoTitle, category, intent }: DemoPreviewBarPr
         {/* Center: Viewport Switcher */}
         <div className="flex items-center bg-slate-900 rounded-lg p-0.5 sm:p-1 border border-slate-800">
           <span className="hidden lg:inline text-[11px] text-slate-400 px-2 font-medium">
-            {locale === 'pt' ? 'Vista:' : locale === 'ar' ? 'العرض:' : 'View:'}
+            {locale === 'pt' ? 'Vista:' : locale === 'ar' ? 'العرض:' : locale === 'fr' ? 'Vue :' : 'View:'}
           </span>
           {viewports.map((item) => (
             <button
@@ -108,6 +108,8 @@ export function DemoPreviewBar({ demoTitle, category, intent }: DemoPreviewBarPr
               ? `Personalizado a partir de ${pricing.basePriceFormatted}`
               : locale === 'ar'
               ? `مخصص لعملك بدءاً من ${pricing.basePriceFormatted}`
+              : locale === 'fr'
+              ? `Personnalisé dès ${pricing.basePriceFormatted}`
               : `Bespoke build starting at ${pricing.basePriceFormatted}`}
           </span>
 
@@ -123,6 +125,8 @@ export function DemoPreviewBar({ demoTitle, category, intent }: DemoPreviewBarPr
                 ? `Encomendar Este Site (${pricing.basePriceFormatted})`
                 : locale === 'ar'
                 ? `اطلب هذا الموقع (${pricing.basePriceFormatted})`
+                : locale === 'fr'
+                ? `Commander Ce Site (${pricing.basePriceFormatted})`
                 : `Order This Website (${pricing.basePriceFormatted})`}
             </span>
             <span className="sm:hidden">
@@ -130,6 +134,8 @@ export function DemoPreviewBar({ demoTitle, category, intent }: DemoPreviewBarPr
                 ? `Encomendar (${pricing.basePriceFormatted})`
                 : locale === 'ar'
                 ? `اطلب (${pricing.basePriceFormatted})`
+                : locale === 'fr'
+                ? `Commander (${pricing.basePriceFormatted})`
                 : `Order (${pricing.basePriceFormatted})`}
             </span>
             <ArrowUpRight className={`w-3.5 h-3.5 ${isRTL ? 'rotate-[-90deg]' : ''}`} />

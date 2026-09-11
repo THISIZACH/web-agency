@@ -174,6 +174,14 @@ Additional Notes: ${message || 'None'}
 
       <hr class="lang-divider" />
 
+      <!-- Français -->
+      <div class="lang-section">
+        <h2 class="title">Merci ! Votre demande de projet a bien été reçue.</h2>
+        <p class="text">Notre équipe examine actuellement vos informations et vous répondra sous 2 à 4 heures.</p>
+      </div>
+
+      <hr class="lang-divider" />
+
       <!-- العربية (RTL) -->
       <div class="lang-section rtl">
         <h2 class="title">شكراً لك! تم استلام طلب مشروعك بنجاح.</h2>
@@ -183,7 +191,7 @@ Additional Notes: ${message || 'None'}
       <!-- WhatsApp CTA -->
       <div class="cta-container">
         <a href="https://wa.me/351932020456" target="_blank" class="whatsapp-btn">
-          💬 Quick Chat on WhatsApp
+          💬 Discussion rapide sur WhatsApp
         </a>
       </div>
     </div>
@@ -204,10 +212,13 @@ Our team will review your details and reach out within 2–4 hours.
 Obrigado! O seu pedido de projeto foi recebido.
 A nossa equipa irá analisar os seus dados e entrar em contacto dentro de 2 a 4 horas.
 
+Merci ! Votre demande de projet a bien été reçue.
+Notre équipe examine actuellement vos informations et vous répondra sous 2 à 4 heures.
+
 شكراً لك! تم استلام طلب مشروعك بنجاح.
 سيقوم فريقنا بمراجعة التفاصيل والتواصل معك خلال 2 إلى 4 ساعات.
 
-Quick Chat on WhatsApp: https://wa.me/351932020456
+Discussion rapide sur WhatsApp: https://wa.me/351932020456
 
 NexaWeb Studio
 contact.nexawebstudio.uk@gmail.com
@@ -227,7 +238,7 @@ https://nexawebstudio.com
     const clientMailPromise = transporter.sendMail({
       from: `"NexaWeb Studio" <contact.nexawebstudio.uk@gmail.com>`,
       to: email,
-      subject: 'Project Request Received | Pedido Recebido | تم استلام طلبك — NexaWeb Studio',
+      subject: 'Project Request Received | Pedido Recebido | Demande Reçue | تم استلام طلبك — NexaWeb Studio',
       text: clientTextContent,
       html: clientHtmlContent,
     });

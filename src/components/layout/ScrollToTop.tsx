@@ -66,6 +66,8 @@ export function ScrollToTop() {
       ? 'Voltar ao topo'
       : locale === 'ar'
       ? 'العودة إلى الأعلى'
+      : locale === 'fr'
+      ? 'Retour en haut'
       : 'Scroll to top';
 
   return (

@@ -1,10 +1,24 @@
+export type LocalizedString = {
+  en: string;
+  pt: string;
+  ar: string;
+  [key: string]: string;
+};
+
+export type LocalizedArray = {
+  en: string[];
+  pt: string[];
+  ar: string[];
+  [key: string]: string[];
+};
+
 export interface PracticeArea {
   id: string;
   slug: string;
-  title: { en: string; pt: string; ar: string };
-  subtitle: { en: string; pt: string; ar: string };
-  overview: { en: string; pt: string; ar: string };
-  keyCapabilities: { en: string[]; pt: string[]; ar: string[] };
+  title: LocalizedString;
+  subtitle: LocalizedString;
+  overview: LocalizedString;
+  keyCapabilities: LocalizedArray;
   image: string;
   leadAttorney: string;
 }
@@ -13,11 +27,11 @@ export interface Attorney {
   id: string;
   slug: string;
   name: string;
-  title: { en: string; pt: string; ar: string };
+  title: LocalizedString;
   practices: string[];
   education: string[];
   languages: string[];
-  bio: { en: string; pt: string; ar: string };
+  bio: LocalizedString;
   image: string;
   email: string;
   directPhone: string;
@@ -25,13 +39,13 @@ export interface Attorney {
 
 export interface LegalInsight {
   slug: string;
-  title: { en: string; pt: string; ar: string };
+  title: LocalizedString;
   category: string;
   date: string;
   readTime: string;
   author: string;
-  excerpt: { en: string; pt: string; ar: string };
-  content: { en: string; pt: string; ar: string };
+  excerpt: LocalizedString;
+  content: LocalizedString;
   image: string;
 }
 

@@ -191,7 +191,7 @@ export function Navbar() {
             {/* Preferences (Theme & Language Switcher) */}
             <div className="flex items-center justify-between pb-4 mb-3 border-b border-slate-100 dark:border-slate-800/80 shrink-0">
               <span className="text-xs font-semibold text-slate-500 dark:text-slate-400">
-                {locale === 'pt' ? 'Definições' : locale === 'ar' ? 'الإعدادات' : 'Preferences'}
+                {locale === 'pt' ? 'Definições' : locale === 'ar' ? 'الإعدادات' : locale === 'fr' ? 'Préférences' : 'Preferences'}
               </span>
               <div className="flex items-center gap-2">
                 <ThemeToggle />

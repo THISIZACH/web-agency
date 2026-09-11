@@ -9,6 +9,7 @@ export interface ContactConfig {
   officeHours: {
     en: string;
     pt: string;
+    fr: string;
     ar: string;
   };
 }
@@ -22,6 +23,7 @@ export const CONTACT_CONFIG: ContactConfig = {
   officeHours: {
     en: 'Mon - Fri: 9:00 AM - 6:00 PM (GMT)',
     pt: 'Seg - Sex: 9:00 - 18:00 (GMT)',
+    fr: 'Lun - Ven: 9h00 - 18h00 (GMT)',
     ar: 'الإثنين - الجمعة: 9:00 ص - 6:00 م (توقيت جرينتش)',
   },
 };
@@ -66,6 +68,33 @@ export function getWhatsAppPrefillMessage(locale: Locale, intent: WhatsAppIntent
       case 'general':
       default:
         return `Olá NexaWeb Studio! Estou interessado em criar um website moderno e profissional para a minha empresa a partir de ${price}.`;
+    }
+  }
+
+  if (locale === 'fr') {
+    switch (intent) {
+      case 'restaurant':
+        return `Bonjour NexaWeb Studio ! Je suis intéressé par le modèle de démonstration Savor Bistro pour mon établissement (${price}).`;
+      case 'dentist':
+        return `Bonjour NexaWeb Studio ! Je suis intéressé par le modèle NovaSmile Dental Clinic pour mon cabinet (${price}).`;
+      case 'architect':
+        return `Bonjour NexaWeb Studio ! Je suis intéressé par le modèle Atelier Forma Architects pour mon agence (${price}).`;
+      case 'barbershop':
+        return `Bonjour NexaWeb Studio ! Je suis intéressé par le modèle North & Blade pour salon de coiffure / barbier (${price}).`;
+      case 'ecommerce':
+        return `Bonjour NexaWeb Studio ! Je suis intéressé par la boutique de luxe VELORA E-Commerce (${price}).`;
+      case 'lawyer':
+        return `Bonjour NexaWeb Studio ! Je suis intéressé par le modèle Meridian Legal pour cabinet d'avocats (${price}).`;
+      case 'accountant':
+        return `Bonjour NexaWeb Studio ! J'aimerais en savoir plus sur vos modèles d'entreprise et conseil (${price}).`;
+      case 'maintenance':
+        return `Bonjour NexaWeb Studio ! J'aimerais en savoir plus sur vos services de mise à jour et maintenance.`;
+      case 'pricing':
+        return `Bonjour NexaWeb Studio ! Je suis intéressé par le pack site web professionnel à partir de ${price}. Comment démarrer ?`;
+      case 'hero':
+      case 'general':
+      default:
+        return `Bonjour NexaWeb Studio ! Je souhaite créer un site web moderne et professionnel pour mon entreprise à partir de ${price}.`;
     }
   }
 

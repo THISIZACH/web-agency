@@ -16,7 +16,7 @@ export function LanguageSwitcher({ className = '', variant = 'dropdown' }: Langu
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
-  const localesList: Locale[] = ['en', 'pt', 'ar'];
+  const localesList: Locale[] = ['en', 'pt', 'fr', 'ar'];
 
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {

@@ -2,11 +2,13 @@ import { Locale } from '@/config/pricing';
 import { TranslationSchema } from './types';
 import { en } from './en';
 import { pt } from './pt';
+import { fr } from './fr';
 import { ar } from './ar';
 
 export const dictionaries: Record<Locale, TranslationSchema> = {
   en,
   pt,
+  fr,
   ar,
 };
 
@@ -20,7 +22,7 @@ export interface LocaleMeta {
   nativeLabel: string;
   dir: 'ltr' | 'rtl';
   flag: string;
-  langTag: string; // HTML lang attribute e.g. en, pt-PT, ar
+  langTag: string; // HTML lang attribute e.g. en, pt-PT, fr, ar
 }
 
 export const LOCALES_META: Record<Locale, LocaleMeta> = {
@@ -39,6 +41,14 @@ export const LOCALES_META: Record<Locale, LocaleMeta> = {
     dir: 'ltr',
     flag: '🇵🇹',
     langTag: 'pt-PT',
+  },
+  fr: {
+    code: 'fr',
+    label: 'French',
+    nativeLabel: 'Français',
+    dir: 'ltr',
+    flag: '🇫🇷',
+    langTag: 'fr',
   },
   ar: {
     code: 'ar',
