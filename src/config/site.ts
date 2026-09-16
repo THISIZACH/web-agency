@@ -13,7 +13,7 @@ export const SITE_CONFIG = {
   defaultLocale: 'en' as const,
   supportedLocales: ['en', 'pt', 'fr', 'ar'] as const,
   socialLinks: {
-    instagram: 'https://instagram.com/nexawebstudio',
+    instagram: 'https://www.instagram.com/nexawebstudio.uk/',
     linkedin: 'https://linkedin.com/company/nexawebstudio',
     twitter: 'https://twitter.com/nexawebstudio',
     github: 'https://github.com/nexawebstudio',

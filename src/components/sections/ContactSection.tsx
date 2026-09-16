@@ -3,9 +3,10 @@
 import React, { useState } from 'react';
 import { useLanguage } from '@/context/LanguageContext';
 import { CONTACT_CONFIG, getWhatsAppUrl } from '@/config/contact';
+import { SITE_CONFIG } from '@/config/site';
 import { Badge } from '@/components/ui/Badge';
 import { Button } from '@/components/ui/Button';
-import { MessageCircle, Mail, Send, CheckCircle, AlertCircle, Phone, ArrowUpRight, Loader2, Copy, Check } from 'lucide-react';
+import { MessageCircle, Mail, Send, CheckCircle, AlertCircle, Phone, ArrowUpRight, Loader2, Copy, Check, Instagram } from 'lucide-react';
 
 export function ContactSection() {
   const { t, locale, pricing, isRTL } = useLanguage();
@@ -203,6 +204,33 @@ export function ContactSection() {
                   )}
                 </div>
               </button>
+            </div>
+
+            {/* Instagram Card */}
+            <div className="p-5 sm:p-7 md:p-8 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm flex items-center justify-between gap-4">
+              <div className="flex items-center gap-3.5 min-w-0">
+                <div className="w-12 h-12 rounded-2xl bg-brand-500/10 text-brand-500 flex items-center justify-center shrink-0">
+                  <Instagram className="w-6 h-6" />
+                </div>
+                <div className="min-w-0">
+                  <h3 className="text-base sm:text-lg font-bold text-slate-900 dark:text-white leading-tight">
+                    Instagram
+                  </h3>
+                  <p className="text-xs text-slate-500 dark:text-slate-400 truncate mt-0.5">
+                    @nexawebstudio.uk
+                  </p>
+                </div>
+              </div>
+              <a
+                href={SITE_CONFIG.socialLinks.instagram}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Follow NexaWeb Studio on Instagram"
+                className="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-2xl bg-slate-50 dark:bg-slate-800/60 hover:bg-brand-50 dark:hover:bg-brand-950/40 text-slate-700 dark:text-slate-300 hover:text-brand-600 dark:hover:text-brand-400 border border-slate-200 dark:border-slate-800 hover:border-brand-500/50 text-xs sm:text-sm font-semibold transition-all duration-200 shrink-0 group"
+              >
+                <span>{locale === 'pt' ? 'Seguir' : locale === 'ar' ? 'متابعة' : locale === 'fr' ? 'Suivre' : 'Follow'}</span>
+                <ArrowUpRight className={`w-4 h-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 ${isRTL ? 'rotate-[-90deg]' : ''}`} />
+              </a>
             </div>
           </div>
 

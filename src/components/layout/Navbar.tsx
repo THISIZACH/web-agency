@@ -6,10 +6,11 @@ import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { useLanguage } from '@/context/LanguageContext';
 import { getWhatsAppUrl } from '@/config/contact';
+import { SITE_CONFIG } from '@/config/site';
 import { LanguageSwitcher } from './LanguageSwitcher';
 import { ThemeToggle } from './ThemeToggle';
 import { Button } from '@/components/ui/Button';
-import { Menu, X, ArrowUpRight } from 'lucide-react';
+import { Menu, X, ArrowUpRight, Instagram } from 'lucide-react';
 
 export function Navbar() {
   const pathname = usePathname();
@@ -228,6 +229,18 @@ export function Navbar() {
               >
                 {t.nav.cta}
               </Button>
+
+              <a
+                href={SITE_CONFIG.socialLinks.instagram}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Follow NexaWeb Studio on Instagram"
+                className="w-full flex items-center justify-center gap-2 py-2.5 rounded-xl text-xs font-semibold text-slate-600 dark:text-slate-400 hover:text-brand-600 dark:hover:text-brand-400 border border-slate-200 dark:border-slate-800 hover:border-brand-500/30 transition-colors"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                <Instagram className="w-4 h-4 text-brand-500" />
+                <span>Instagram: @nexawebstudio.uk</span>
+              </a>
             </div>
           </div>
         </div>

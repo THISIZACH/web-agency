@@ -83,6 +83,7 @@ export function getOrganizationSchema(locale: Locale = 'en') {
     description: SITE_CONFIG.description[locale] || SITE_CONFIG.description.en,
     telephone: CONTACT_CONFIG.phone,
     email: CONTACT_CONFIG.email,
+    sameAs: [SITE_CONFIG.socialLinks.instagram],
     priceRange: locale === 'ar' ? '$299 - $999' : '€299 - €999',
     currenciesAccepted: locale === 'ar' ? 'USD' : 'EUR',
     paymentAccepted: 'Credit Card, Bank Transfer, PayPal',

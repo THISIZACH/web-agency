@@ -7,7 +7,7 @@ import { useLanguage } from '@/context/LanguageContext';
 import { CONTACT_CONFIG, getWhatsAppUrl } from '@/config/contact';
 import { SITE_CONFIG } from '@/config/site';
 import { demoUrls } from '@/config/demos';
-import { Sparkles, MessageCircle, Mail, Phone, Clock, ArrowUpRight } from 'lucide-react';
+import { Sparkles, MessageCircle, Mail, Phone, Clock, ArrowUpRight, Instagram } from 'lucide-react';
 import { LanguageSwitcher } from './LanguageSwitcher';
 
 export function Footer() {
@@ -56,7 +56,7 @@ export function Footer() {
               {t.footer.tagline}
             </p>
 
-            <div className="pt-2 flex items-center gap-3">
+            <div className="pt-2 flex flex-wrap items-center gap-2.5">
               <a
                 href={whatsappUrl}
                 target="_blank"
@@ -65,6 +65,16 @@ export function Footer() {
               >
                 <MessageCircle className="w-4 h-4 shrink-0" />
                 <span className="truncate">WhatsApp: {CONTACT_CONFIG.whatsappDisplay}</span>
+              </a>
+              <a
+                href={SITE_CONFIG.socialLinks.instagram}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Follow NexaWeb Studio on Instagram"
+                className="inline-flex items-center gap-2 px-3.5 py-2 rounded-lg bg-slate-900 border border-slate-800 text-slate-300 hover:text-white hover:border-brand-500/40 hover:bg-slate-800/80 transition-colors text-xs font-semibold"
+              >
+                <Instagram className="w-4 h-4 text-brand-400 shrink-0" />
+                <span>Instagram</span>
               </a>
             </div>
           </div>
@@ -159,6 +169,19 @@ export function Footer() {
                 </a>
               </li>
               <li className="flex items-start gap-2.5">
+                <Instagram className="w-4 h-4 text-brand-400 shrink-0 mt-0.5" />
+                <a
+                  href={SITE_CONFIG.socialLinks.instagram}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Follow NexaWeb Studio on Instagram"
+                  className="hover:text-white transition-colors inline-flex items-center gap-1 group"
+                >
+                  <span>@nexawebstudio.uk</span>
+                  <ArrowUpRight className="w-3.5 h-3.5 opacity-60 group-hover:opacity-100 transition-opacity" />
+                </a>
+              </li>
+              <li className="flex items-start gap-2.5">
                 <Clock className="w-4 h-4 text-brand-400 shrink-0 mt-0.5" />
                 <span className="text-xs leading-relaxed">
                   {CONTACT_CONFIG.officeHours[locale] || CONTACT_CONFIG.officeHours.en}
@@ -172,6 +195,16 @@ export function Footer() {
         <div className="mt-14 pt-8 border-t border-slate-900 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-400">
           <p>{t.footer.copyright}</p>
           <div className="flex flex-wrap items-center gap-4 sm:gap-6">
+            <a
+              href={SITE_CONFIG.socialLinks.instagram}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Follow NexaWeb Studio on Instagram"
+              className="hover:text-brand-400 transition-colors inline-flex items-center gap-1.5"
+            >
+              <Instagram className="w-3.5 h-3.5 text-brand-400" />
+              <span>Instagram</span>
+            </a>
             <Link href="/privacy" className="hover:text-slate-200 transition-colors">
               {t.footer.privacy}
             </Link>
