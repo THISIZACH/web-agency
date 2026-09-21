@@ -18,7 +18,7 @@ export const CONTACT_CONFIG: ContactConfig = {
   agencyName: 'NexaWeb Studio',
   whatsappNumber: '351932020456', // Single source of truth for WhatsApp
   whatsappDisplay: '+351 932 020 456',
-  email: 'contact.nexawebstudio.uk@gmail.com',
+  email: 'contact@nexawebstudio.uk',
   phone: '+351 932 020 456',
   officeHours: {
     en: 'Mon - Fri: 9:00 AM - 6:00 PM (GMT)',

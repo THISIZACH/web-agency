@@ -1138,7 +1138,7 @@ async function renderPosts() {
         <div class="footer-sub">
           <span>Start Your Project Today</span>
           <span class="dot">•</span>
-          <span>contact.nexawebstudio.uk@gmail.com</span>
+          <span>contact@nexawebstudio.uk</span>
         </div>
       </div>
     </body>

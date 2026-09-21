@@ -298,7 +298,7 @@ export function ContactSection() {
                       ) : (
                         <>
                           <Copy className="w-4 h-4 text-slate-500 dark:text-slate-400 shrink-0" />
-                          <span className="font-mono text-xs sm:text-sm">contact.nexawebstudio.uk@gmail.com</span>
+                          <span className="font-mono text-xs sm:text-sm">{CONTACT_CONFIG.email}</span>
                         </>
                       )}
                     </button>
