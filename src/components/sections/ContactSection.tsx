@@ -82,6 +82,7 @@ export function ContactSection() {
           goals: formData.needs,
           needs: formData.needs,
           message: formData.message,
+          locale,
         }),
       });
 
